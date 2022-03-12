@@ -1,7 +1,7 @@
 {
-    "name": "solutions-server-template",
+    "name": "client-identity-enforcement-plugin",
     "version": "1.0.0",
-    "description": "A template for creating a solutions server",
+    "description": "Example plugin for client identity enforcement",
     "private": true,
     "main": "index.js",
     "scripts": {
@@ -9,12 +9,12 @@
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "MIT",
     "dependencies": {
       "apollo-server": "latest",
       "graphql": "latest"
     },
     "devDependencies": {
-        "nodemon": "latest"
+      "nodemon": "latest"
     }
   }

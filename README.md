@@ -1,35 +1,22 @@
-# solutions-server-template
-A repo template for creating a small demo with Apollo Server
-
-The Solutions team can use this as the template option when creating a new repo through the GitHub UI to demo some features with Apollo Server.
-
-This template uses the following packages:
-    * apollo-server
-    * graphql
-    * nodemon (dev dependency)
-
-START TEMAPLATE
--------
-
-# NAME-OF-PROJECT
+# Apollo Server Plugin for Enforcing Client and Operation Names
 
 **The code in this repository is experimental and has been provided for reference purposes only. Community feedback is welcome but this project may not be supported in the same way that repositories in the official [Apollo GraphQL GitHub organization](https://github.com/apollographql) are. If you need help you can file an issue on this repository, [contact Apollo](https://www.apollographql.com/contact-sales) to talk to an expert, or create a ticket directly in Apollo Studio.**
 
+This project provides a simple working example of a plugin that can be used in Apollo Server to enforce client identity and operation naming. The example uses a basic `ApolloServer` instance, but this can run on any Apollo Server instance, either for subgraphs or the gateway as part of [Apollo Federation](https://www.apollographql.com/docs/federation/).
+
 ## Installation
 
-Outline the steps required to install project dependencies
+Run the following command to install dependencies then start the gateway and implementing services:
+
+```
+npm i && npm start
+```
 
 ## Usage
+See the example code in `plugin.js` for the plugin implementation.
 
-Provide detailed usage instructions here.
+The first check is to make sure the client is passing the proper `clientName` and `clientVersion` headers. The second check validates that the operation name is present in the parsed operation document.
 
 ## Known Limitations
 
-List any limitations of the project here:
-
-- Limitation 1
-- Limitation 2
-
-## Notes
-
-Is there anything else the user should know about this project? (e.g. assumptions, prior art, references, etc.)
+This plugin will throw an error in it's current implementation given an invalid operation. If you have existing clients sending operations, you will have to have them update first before you can start enforcing the new rules.
